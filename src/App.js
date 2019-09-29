@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <h1>Javascript is awesome!</h1>
       <p>works! =)</p>
-      <Person/>
+      <Person name='Patrick' age='30'>My hobbies is: Play GW2 and study new techologies</Person>
     </div>
   );
 }
