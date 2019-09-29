@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Person from './Person/Person';
 
+// Class base Component or Functional Use Hook 
+// Smart component (not dumb ar stateless components)
+
 // React Hooks - useState is a Hook
 
 // Isso é um Functional component
@@ -15,7 +18,7 @@ const App = props => {
       persons: [
         {name: 'Patrick', age: 30, hobbies: 'GW2'},
         {name: 'Aline', age: 31, hobbies: 'Patins'},
-        {name: 'Nycole', age: 14, hobbies: 'Japa'},
+        {name: 'Nycole', age: 14, hob0bies: 'Japa'},
       ]
     }
   );
