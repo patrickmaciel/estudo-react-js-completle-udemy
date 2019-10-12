@@ -47,17 +47,10 @@ class App extends Component {
       cursor: 'pointer'
     };
 
-    return (
-      <div className="App">
-        <h1>Javascript is awesome!</h1>
-        <p>works! =)</p>
-
-        <button style={style} onClick={() => this.switchNameHandler('Opa')}>Switch Name</button>
-
-        <button style={style} onClick={() => this.togglePersonHandler()}>Toggle Persons</button>
-
-        { this.state.showPersons ? 
-          <div>
+    let persons = null;
+    if (this.state.showPersons) {
+      persons = (
+        <div>
             <Person 
               name={this.state.persons[0].name} 
               age={this.state.persons[0].age} 
@@ -83,8 +76,19 @@ class App extends Component {
               {this.state.persons[2].hobbies}
             </Person>
           </div>
-          : null 
-        }
+      );
+    }
+
+    return (
+      <div className="App">
+        <h1>Javascript is awesome!</h1>
+        <p>works! =)</p>
+
+        <button style={style} onClick={() => this.switchNameHandler('Opa')}>Switch Name</button>
+
+        <button style={style} onClick={() => this.togglePersonHandler()}>Toggle Persons</button>
+
+        {persons}
       </div>
     );
   }
