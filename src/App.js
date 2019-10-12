@@ -9,7 +9,8 @@ class App extends Component {
       {name: 'Aline', age: 31, hobbies: 'Patins'},
       {name: 'Nycole', age: 14, hobbies: 'Japa'},
     ],
-    otherState: 'some other value'
+    otherState: 'some other value',
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
@@ -32,6 +33,11 @@ class App extends Component {
     })
   }
 
+  togglePersonHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
+  }
+
   render() {
     const style = {
       backgroundColor: 'white',
@@ -48,31 +54,37 @@ class App extends Component {
 
         <button style={style} onClick={() => this.switchNameHandler('Opa')}>Switch Name</button>
 
-        <Person 
-          name={this.state.persons[0].name} 
-          age={this.state.persons[0].age} 
-          click={this.switchNameHandler.bind(this, 'Servo de Deus')}
-          changed={this.nameChangedHandler}
-        >
-          {this.state.persons[0].hobbies}
-        </Person>
+        <button style={style} onClick={() => this.togglePersonHandler()}>Toggle Persons</button>
 
-        <Person 
-          name={this.state.persons[1].name} 
-          age={this.state.persons[1].age}
-          changed={this.nameChangedHandler}
-          >
-          {this.state.persons[1].hobbies}
-        </Person>
+        { this.state.showPersons ? 
+          <div>
+            <Person 
+              name={this.state.persons[0].name} 
+              age={this.state.persons[0].age} 
+              click={this.switchNameHandler.bind(this, 'Servo de Deus')}
+              changed={this.nameChangedHandler}
+            >
+              {this.state.persons[0].hobbies}
+            </Person>
 
-        <Person 
-          name={this.state.persons[2].name} 
-          age={this.state.persons[2].age}
-          changed={this.nameChangedHandler}
-          >
-          {this.state.persons[2].hobbies}
-        </Person>
+            <Person 
+              name={this.state.persons[1].name} 
+              age={this.state.persons[1].age}
+              changed={this.nameChangedHandler}
+              >
+              {this.state.persons[1].hobbies}
+            </Person>
 
+            <Person 
+              name={this.state.persons[2].name} 
+              age={this.state.persons[2].age}
+              changed={this.nameChangedHandler}
+              >
+              {this.state.persons[2].hobbies}
+            </Person>
+          </div>
+          : null 
+        }
       </div>
     );
   }
